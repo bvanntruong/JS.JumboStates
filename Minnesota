@@ -1,4 +1,4 @@
-WFFUND017 : Set Jumbo Box to Yes - HPML (MN)
+// WFFUND017 : Set Jumbo Box to Yes - HPML (MN)
 /* If the loan amount is changed, then check for subject property state, county, and dwelling unit count. 
    If the loan amount is greater than the max loan limit per county, override IsJumboForHPML_OV box to Yes (1). 
    MINNESOTA */
