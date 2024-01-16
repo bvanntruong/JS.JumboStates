@@ -1,0 +1,61 @@
+// WFFUND025 : Set Jumbo Box to Yes - HPML (NY)
+/* If the loan amount is changed, then check for subject property state, county, and dwelling unit count. 
+   If the loan amount is greater than the max loan limit per county, override IsJumboForHPML_OV box to Yes (1). 
+   NEW YORK */
+
+if ( (ev.TableAndFieldName=="Loan.BaseLoan") 
+ && (los.GetField("SubProp.State") == "NY") ) {
+
+  los.SetField("Loan.IsJumboForHPML_OV", 2); 
+  /* Default to No. */
+
+  if ( (los.GetField("SubProp.County") == "BRONX") 
+   || (los.GetField("SubProp.County") == "KINGS")
+   || (los.GetField("SubProp.County") == "NASSAU")
+   || (los.GetField("SubProp.County") == "NEW YORK")
+   || (los.GetField("SubProp.County") == "PUTNAM")
+   || (los.GetField("SubProp.County") == "QUEENS")
+   || (los.GetField("SubProp.County") == "RICHMOND")
+   || (los.GetField("SubProp.County") == "ROCKLAND")
+   || (los.GetField("SubProp.County") == "SUFFOLK")
+   || (los.GetField("SubProp.County") == "WESTCHESTER") ){
+    if ( (los.GetField("SubProp.NoUnits") == 1) 
+     && (los.GetField("Loan.BaseLoan") > 1089300) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 2) 
+     && (los.GetField("Loan.BaseLoan") > 1394775) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 3) 
+     && (los.GetField("Loan.BaseLoan") > 1685850) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 4) 
+     && (los.GetField("Loan.BaseLoan") > 2095200) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+  }
+
+  else {
+   if ( (los.GetField("SubProp.NoUnits") == 1) 
+    && (los.GetField("Loan.BaseLoan") > 472030) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 2) 
+    && (los.GetField("Loan.BaseLoan") > 604400) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 3) 
+    && (los.GetField("Loan.BaseLoan") > 730525) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 4) 
+    && (los.GetField("Loan.BaseLoan") > 907900) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+  }
+
+};
+
+
