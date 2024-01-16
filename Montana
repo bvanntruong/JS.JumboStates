@@ -1,4 +1,4 @@
-WFFUND018 : Set Jumbo Box to Yes - HPML (MT)
+// WFFUND018 : Set Jumbo Box to Yes - HPML (MT)
 /* If the loan amount is changed, then check for subject property state, county, and dwelling unit count. 
    If the loan amount is greater than the max loan limit per county, override IsJumboForHPML_OV box to Yes (1). 
    MONTANA */
