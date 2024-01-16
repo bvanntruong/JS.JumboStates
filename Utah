@@ -1,0 +1,189 @@
+// WFFUND033 : Set Jumbo Box to Yes - HPML (UT)
+/* If the loan amount is changed, then check for subject property state, county, and dwelling unit count. 
+   If the loan amount is greater than the max loan limit per county, override IsJumboForHPML_OV box to Yes (1). 
+   UTAH */
+
+if ( (ev.TableAndFieldName=="Loan.BaseLoan") 
+ && (los.GetField("SubProp.State") == "UT") ) {
+
+  los.SetField("Loan.IsJumboForHPML_OV", 2); 
+  /* Default to No. */
+
+  if ( (los.GetField("SubProp.County") == "BOX ELDER") 
+   || (los.GetField("SubProp.County") == "DAVIS")
+   || (los.GetField("SubProp.County") == "MORGAN")
+   || (los.GetField("SubProp.County") == "WEBER") ){
+    if ( (los.GetField("SubProp.NoUnits") == 1) 
+     && (los.GetField("Loan.BaseLoan") > 744050) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 2) 
+     && (los.GetField("Loan.BaseLoan") > 952500) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 3) 
+     && (los.GetField("Loan.BaseLoan") > 1151400) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 4) 
+     && (los.GetField("Loan.BaseLoan") > 1430900) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+  }
+
+  else if ( (los.GetField("SubProp.County") == "SUMMIT") 
+   || (los.GetField("SubProp.County") == "WASATCH") ){
+    if ( (los.GetField("SubProp.NoUnits") == 1) 
+     && (los.GetField("Loan.BaseLoan") > 1089300) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 2) 
+     && (los.GetField("Loan.BaseLoan") > 1394775) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 3) 
+     && (los.GetField("Loan.BaseLoan") > 1685850) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 4) 
+     && (los.GetField("Loan.BaseLoan") > 2095200) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+  }
+
+  else if ( (los.GetField("SubProp.County") == "SALT LAKE") 
+   || (los.GetField("SubProp.County") == "TOOELE") ){
+    if ( (los.GetField("SubProp.NoUnits") == 1) 
+     && (los.GetField("Loan.BaseLoan") > 619850) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 2) 
+     && (los.GetField("Loan.BaseLoan") > 793500) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 3) 
+     && (los.GetField("Loan.BaseLoan") > 959200) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 4) 
+     && (los.GetField("Loan.BaseLoan") > 1192050) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+  }
+
+  else if ( (los.GetField("SubProp.County") == "JUAB") 
+   || (los.GetField("SubProp.County") == "UTAH") ){
+    if ( (los.GetField("SubProp.NoUnits") == 1) 
+     && (los.GetField("Loan.BaseLoan") > 601450) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 2) 
+     && (los.GetField("Loan.BaseLoan") > 769950) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 3) 
+     && (los.GetField("Loan.BaseLoan") > 930700) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+    else if ( (los.GetField("SubProp.NoUnits") == 4) 
+     && (los.GetField("Loan.BaseLoan") > 1156650) ){
+     los.SetField("Loan.IsJumboForHPML_OV", 1)
+     }
+  }
+
+  else if (los.GetField("SubProp.County") == "CACHE") {
+   if ( (los.GetField("SubProp.NoUnits") == 1) 
+    && (los.GetField("Loan.BaseLoan") > 492200) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 2) 
+    && (los.GetField("Loan.BaseLoan") > 630100) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 3) 
+    && (los.GetField("Loan.BaseLoan") > 761650) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 4) 
+    && (los.GetField("Loan.BaseLoan") > 946550) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+  }
+
+  else if (los.GetField("SubProp.County") == "GRAND") {
+   if ( (los.GetField("SubProp.NoUnits") == 1) 
+    && (los.GetField("Loan.BaseLoan") > 543950) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 2) 
+    && (los.GetField("Loan.BaseLoan") > 696350) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 3) 
+    && (los.GetField("Loan.BaseLoan") > 841750) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 4) 
+    && (los.GetField("Loan.BaseLoan") > 1046050) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+  }
+
+  else if (los.GetField("SubProp.County") == "RICH") {
+   if ( (los.GetField("SubProp.NoUnits") == 1) 
+    && (los.GetField("Loan.BaseLoan") > 531300) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 2) 
+    && (los.GetField("Loan.BaseLoan") > 680150) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 3) 
+    && (los.GetField("Loan.BaseLoan") > 822150) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 4) 
+    && (los.GetField("Loan.BaseLoan") > 1021750) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+  }
+
+  else if (los.GetField("SubProp.County") == "WASHINGTON") {
+   if ( (los.GetField("SubProp.NoUnits") == 1) 
+    && (los.GetField("Loan.BaseLoan") > 593400) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 2) 
+    && (los.GetField("Loan.BaseLoan") > 759650) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 3) 
+    && (los.GetField("Loan.BaseLoan") > 918250) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 4) 
+    && (los.GetField("Loan.BaseLoan") > 1141150) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+  }
+
+  else {
+   if ( (los.GetField("SubProp.NoUnits") == 1) 
+    && (los.GetField("Loan.BaseLoan") > 472030) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 2) 
+    && (los.GetField("Loan.BaseLoan") > 604400) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 3) 
+    && (los.GetField("Loan.BaseLoan") > 730525) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+   else if ( (los.GetField("SubProp.NoUnits") == 4) 
+    && (los.GetField("Loan.BaseLoan") > 907900) ){
+    los.SetField("Loan.IsJumboForHPML_OV", 1)
+    }
+  }
+
+};
